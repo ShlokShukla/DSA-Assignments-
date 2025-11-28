@@ -1,0 +1,33 @@
+#include <iostream>
+using namespace std;
+int main() 
+{
+    int arr[100], n;
+    cin >> n;
+    for (int i = 0; i < n; i++) 
+    {
+        cin >> arr[i];
+    }
+    for (int i = 0; i < n; i++) 
+    {
+        for (int j = i + 1; j < n; j++) 
+        {
+
+            if (arr[i] == arr[j]) 
+            {
+                for (int k = j; k < n - 1; k++) 
+                {
+                    arr[k] = arr[k + 1];
+                }
+                n--;     // reduce size
+                j--;     // check the new element at same index
+            }
+        }
+    }
+    for (int i = 0; i < n; i++) 
+    {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+    return 0;
+}
